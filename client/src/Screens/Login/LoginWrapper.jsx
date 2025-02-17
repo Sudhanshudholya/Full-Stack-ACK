@@ -80,7 +80,7 @@ const LoginWrapper = () => {
       const res = await login(values).unwrap(); // ✅ unwrap() se actual response milega
       
       if (res.status === "OK") {
-        localStorage.setItem("Token", res.data.token); // ✅ Token store ho jayega
+        localStorage.setItem("token", res.data.token); // ✅ Token store ho jayega
         toasts.successMsg("Login Successfully");
         navigate("/layout/customer-list"); // ✅ Redirect ho jayega
       } else {
