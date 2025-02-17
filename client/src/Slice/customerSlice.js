@@ -9,7 +9,7 @@ export const customerSlice = apiSlice.injectEndpoints({
         url: '/users/addUser',
         method: 'POST',
         body: userData,
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['customer']
     }),
@@ -18,7 +18,7 @@ export const customerSlice = apiSlice.injectEndpoints({
       query: ({ token }) => ({
         url: '/users/getAllUsers',
         method: 'GET',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       providesTags: ['customer']
     }),
@@ -27,7 +27,7 @@ export const customerSlice = apiSlice.injectEndpoints({
       query: ({ token, id }) => ({
         url: `users/getUserById/${id}`,
         method: 'GET',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       providesTags: ['customer']
     }),
@@ -37,7 +37,7 @@ export const customerSlice = apiSlice.injectEndpoints({
         url: `/users/updateUserDetails/${id}`,
         method: 'PUT',
         body: userData,
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['customer']
     }),
@@ -46,7 +46,7 @@ export const customerSlice = apiSlice.injectEndpoints({
       query: ({ id, token }) => ({
         url: `/users/deleteUser/${id}`,
         method: 'DELETE',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['customer']
     }),

@@ -11,7 +11,7 @@ export const productSlice = apiSlice.injectEndpoints({
         url: 'product/addProduct',
         method: 'POST',
         body: productData,
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['product']
     }),
@@ -20,7 +20,7 @@ export const productSlice = apiSlice.injectEndpoints({
       query: ({ token }) => ({
         url: 'product/getproduct',
         method: 'GET',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       providesTags: ['product']
     }),
@@ -29,7 +29,7 @@ export const productSlice = apiSlice.injectEndpoints({
       query: ({ token, id }) => ({
         url: `product/getSingleProduct/${id}`,
         method: 'GET',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       providesTags: ['product']
     }),
@@ -39,7 +39,7 @@ export const productSlice = apiSlice.injectEndpoints({
         url: `product/updateProduct/${id}`,
         method: 'PUT',
         body: productData,
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['product']
     }),
@@ -48,7 +48,7 @@ export const productSlice = apiSlice.injectEndpoints({
       query: ({ id, token }) => ({
         url: `product/deleteProduct/${id}`,
         method: 'DELETE',
-        headers: { "x-access-token": token },
+        headers: { "authorization": token },
       }),
       invalidatesTags: ['product']
     }),
