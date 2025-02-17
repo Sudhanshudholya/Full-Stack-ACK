@@ -6,7 +6,7 @@ const WithLogin = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const token = localStorage.getItem("Token");
+    const token = localStorage.getItem("token");
     if (token) {
       navigate("/layout");
     }
