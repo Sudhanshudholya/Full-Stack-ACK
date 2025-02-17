@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-
-const DB_URL =
-  "mongodb+srv://samyak786jain:rcALdz2hda8fL0OH@database-server.kykq2ld.mongodb.net/user-management";
+require("dotenv").config()
+const DB_URL = process.env.DB_URL
+const PORT = process.env.PORT
 
 mongoose
   .connect(DB_URL)
   .then(() => {
-    console.log("Database connected");
+    console.log(`Database connected on port ${PORT}`);
   })
   .catch((error) => {
     console.log("Database error",error);
