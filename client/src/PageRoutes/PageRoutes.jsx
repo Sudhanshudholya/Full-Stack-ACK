@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Layout from "../Sidebar/Layout";
-// import Auth from "../Components/Auth";
-// import WithoutLogin from "../Components/WithoutLogin";
+import Layout from "../Layout/Layout";
+import Auth from "../Components/Auth";
+import WithLogin from "../Components/WithLogin"
 import LoginWrapper from "../Screens/Login/LoginWrapper";
 import CustomerListingWrapper from "../Screens/Customer/List/CustomerListingWrapper";
 import AddCustomerWrapper from "../Screens/Customer/Add Customer/AddCustomerWrapper";
@@ -19,15 +19,15 @@ const PageRoutes = () => {
     {
       path: "/", // Root path
       element: (
-        // <WithoutLogin>
+        <WithLogin>
           <LoginWrapper />
-        // </WithoutLogin>
+        // </WithLogin>
       ), // Login page
     },
     {
       path: "/layout", // Layout path for the dashboard or main pages
       element: (
-        // <Auth>
+        <Auth>
           <Layout />
         // </Auth>
       ), // Main layout that contains a sidebar

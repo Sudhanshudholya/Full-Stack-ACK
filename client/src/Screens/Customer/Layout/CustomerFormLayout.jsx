@@ -74,7 +74,7 @@ const CustomerFormLayout = ({ formikProps, heading, buttonName }) => {
         <div>
           <button
             type="submit"
-            className="border rounded bg-blue-600 w-full h-10 sm:h-12 p-2 font-light text-white text-base sm:text-lg"
+            className="border rounded bg-blue-600 w-full h-10 sm:h-12 p-2 font-light text-white text-base sm:text-lg transition-all duration-300 ease-in-out hover:bg-blue-700 disabled:bg-gray-400"
             disabled={isSubmitting}
           >
             {buttonName}

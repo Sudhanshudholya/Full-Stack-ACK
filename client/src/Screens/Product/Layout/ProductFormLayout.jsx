@@ -5,14 +5,13 @@ import { useGetCategoryQuery } from "../../../Slice/categorySlice";
 import React from "react";
 
 const ProductFormLayout = ({ formikProps, heading, buttonName }) => {
-    
     const { values, handleChange, isSubmitting } = formikProps;
     const token = localStorage.getItem("Token");
     const { data } = useGetCategoryQuery({ token });
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-50">
-            <div className="w-full max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-md">
+        <div className="flex justify-center items-center min-h-screen bg-gray-50 px-4 sm:px-6 lg:px-8">
+            <div className="w-full max-w-lg p-6 bg-white border border-gray-200 rounded-lg shadow-md">
                 <h2 className="text-xl font-semibold text-center mb-6">{heading}</h2>
 
                 {/* Product Name */}
@@ -30,31 +29,29 @@ const ProductFormLayout = ({ formikProps, heading, buttonName }) => {
 
                 {/* Category */}
                 <div className="mb-4">
-                    <div>
-                        <label htmlFor="category" className="block text-sm text-gray-700">
-                            Category
-                        </label>
-                        <select
-                            name="category"
-                            value={values.category}
-                            onChange={handleChange}
-                            className="w-full border rounded-md p-2 focus:ring-2 focus:ring-blue-500"
-                        >
-                            <option value="">Select</option>
-                            {data?.data?.map((cat) => (
-                                <option key={cat._id} value={cat._id}>
-                                    {cat.categoryname}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                    <label htmlFor="category" className="block text-sm text-gray-700 mb-1">
+                        Category
+                    </label>
+                    <select
+                        name="category"
+                        value={values.category}
+                        onChange={handleChange}
+                        className="w-full border rounded-md p-2 focus:ring-2 focus:ring-blue-500"
+                    >
+                        <option value="">Select</option>
+                        {data?.data?.map((cat) => (
+                            <option key={cat._id} value={cat._id}>
+                                {cat.categoryname}
+                            </option>
+                        ))}
+                    </select>
                 </div>
 
                 {/* MRP */}
                 <div className="mb-4">
                     <ATMNumberField
                         label="MRP"
-                        placeholder="Enter product mrp"
+                        placeholder="Enter product MRP"
                         name="mrp"
                         value={values.mrp}
                         onChange={handleChange}
@@ -63,7 +60,7 @@ const ProductFormLayout = ({ formikProps, heading, buttonName }) => {
                     <p className='text-red-400'><ErrorMessage name='mrp' /></p>
                 </div>
 
-                {/* RATE */}
+                {/* Rate */}
                 <div className="mb-4">
                     <ATMNumberField
                         label="Rate"
@@ -80,7 +77,7 @@ const ProductFormLayout = ({ formikProps, heading, buttonName }) => {
                 <div>
                     <button
                         type="submit"
-                        className="border rounded bg-blue-600 w-full h-12 p-2 font-light text-xl text-white"
+                        className="w-full bg-blue-600 text-white text-lg font-medium rounded-lg py-3 transition duration-300 hover:bg-blue-700 disabled:opacity-50"
                         disabled={isSubmitting}
                     >
                         {buttonName}

@@ -30,8 +30,8 @@ const AddCustomerWrapper = () => {
   const handleSubmit = (values) => {
     addCustomer({ userData: values, token })
       .then((res) => {
-        if (res.data.msg) {
-          toasts.successMsg("Customer added successfully");
+        if (res?.data?.msg) {
+          toasts?.successMsg("Customer added successfully");
           navigate("/layout/customer-list");
         } else {
           toasts.errorMsg(res.data.msg);

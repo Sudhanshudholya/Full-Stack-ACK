@@ -6,7 +6,7 @@ const CategoryFormLayout = ({ formikProps, heading, buttonName }) => {
     const { values, handleChange, isSubmitting } = formikProps;
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-50">
+        <div className="flex justify-center items-center min-h-screen bg-gray-50 p-4 sm:p-6 md:p-8">
             <div className="w-full max-w-md p-6 bg-white border border-gray-200 rounded-lg shadow-md">
                 <h2 className="text-xl font-semibold text-center mb-6">{heading}</h2>
 
@@ -20,7 +20,7 @@ const CategoryFormLayout = ({ formikProps, heading, buttonName }) => {
                         onChange={handleChange}
                         className="w-full"
                     />
-                    <p className="text-red-400">
+                    <p className="text-red-400 text-sm">
                         <ErrorMessage name="categoryname" />
                     </p>
                 </div>
@@ -29,7 +29,7 @@ const CategoryFormLayout = ({ formikProps, heading, buttonName }) => {
                 <div>
                     <button
                         type="submit"
-                        className="border rounded bg-blue-600 w-full h-12 p-2 font-light text-xl text-white"
+                        className="border rounded bg-blue-600 w-full h-12 p-2 font-light text-xl text-white transition-all duration-300 ease-in-out hover:bg-blue-700 disabled:bg-gray-400"
                         disabled={isSubmitting}
                     >
                         {buttonName}
