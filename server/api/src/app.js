@@ -1,11 +1,12 @@
 const express = require("express");
+require("dotenv").config()
 
 const bodyParser = require("body-parser");
 const App = express();
 const cors = require("cors");
 require("./database");
 const corsOptions = {
-  origin: "http://localhost:5173", // Your frontend URL
+  origin: process.env.CLIENT_BASE_URL, // Your frontend URL
   methods: ["GET", "POST", "PATCH", "PUT", "DELETE"], // Allowed methods
   credentials: true,
 };
